@@ -4,6 +4,11 @@
 // </copyright>
 //-------------------------------------------------------------------------
 
+/*Crear una clase ConsolePrinter para imprimir las recetas en la consola en lugar que las recetas se impriman a sí mismas.
+
+¿Qué patrones o principios usan para determinar cómo implementar este cambio? Escriban la respuesta en comentarios en el código.?*/
+
+
 using System;
 using System.Collections;
 using System.Linq;
@@ -25,7 +30,8 @@ namespace Full_GRASP_And_SOLID
             recipe.FinalProduct = GetProduct("Café con leche");
             recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
-            recipe.PrintRecipe();
+            //recipe.PrintRecipe();
+            ConsolePrinter.PrintRecipe(recipe);//Se llama al método PrintRecipe de la clase ConsolePrinter para imprimir la receta en la consola.
         }
 
         private static void PopulateCatalogs()
@@ -71,3 +77,6 @@ namespace Full_GRASP_And_SOLID
         }
     }
 }
+
+/*Respuesta: El principio de responsabilidad única, ya que la clase ConsolePrinter se encarga de imprimir las recetas en la consola
+ y la clase Recipe se encarga de crear las recetas.*/
